@@ -7,8 +7,8 @@ namespace DestinyAPI.Data
     {
         IEnumerable<BaseWeaponStatsModel> GetAllWeapons();
         BaseWeaponStatsModel GetWeaponById(int id);
-        BaseWeaponStatsModel GetWeaponsByType(RarityType rarity);
-        BaseWeaponStatsModel GetWeaponsByWeaponType(WeaponType type);
-        BaseWeaponStatsModel GetWeaponsByAttribute(AttributeType attribute);
+        IEnumerable<BaseWeaponStatsModel> GetWeaponsByRarity(RarityType rarity);
+        IEnumerable<BaseWeaponStatsModel> GetWeaponsByWeaponType(WeaponType type);
+        IEnumerable<BaseWeaponStatsModel> GetWeaponsByAttribute(AttributeType attribute);
     }
 }
