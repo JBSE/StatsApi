@@ -128,25 +128,37 @@ namespace DestinyAPI.Data
                     weaponStats.RoundsPerMinute = weapon.RoundsPerMinute;
                     weaponStats.Magazine = weapon.Magazine;
                 }
-                    
             }
 
             return weaponStats;
         }
 
-        public IEnumerable<BaseWeaponStatsModel> GetWeaponsByRarity(RarityType rarity)
+        public IEnumerable<BaseWeaponStatsModel> GetWeaponsByRarity(string rarity)
         {
-            return _allWeaponData.Where(x => x.Rarity == rarity);
+            if (Enum.TryParse(rarity, out RarityType rarityType))
+            {
+                throw new Exception("Rarity does not exist, check spelling and try again");
+            }
+
+            return _allWeaponData.Where(x => x.Rarity == rarityType);
         }
 
-        public IEnumerable<BaseWeaponStatsModel> GetWeaponsByWeaponType(WeaponType type)
+        public IEnumerable<BaseWeaponStatsModel> GetWeaponsByWeaponType(string type)
         {
-            return _allWeaponData.Where(x => x.WeaponType == type);
+            if (Enum.TryParse(type, out WeaponType weaponType))
+            {
+                throw new Exception("Weapon type does not exist, check spelling and try again");
+            }
+            return _allWeaponData.Where(x => x.WeaponType == weaponType);
         }
 
-        public IEnumerable<BaseWeaponStatsModel> GetWeaponsByAttribute(AttributeType attribute)
+        public IEnumerable<BaseWeaponStatsModel> GetWeaponsByAttribute(string attribute)
         {
-            return _allWeaponData.Where(x => x.Attribute == attribute);
+            if (Enum.TryParse(attribute, out AttributeType attributeType))
+            {
+                throw new Exception("Attribute type does not exist, check spelling and try again");
+            }
+            return _allWeaponData.Where(x => x.Attribute == attributeType);
         }
     }
 }
