@@ -8,6 +8,8 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace DestinyApi.Controllers
 {
+    [Route("api/DestinyApi")]
+    [ApiController]
     public class WeaponsController : ControllerBase
     {
         private readonly IWeaponRepo _repo;
@@ -25,7 +27,7 @@ namespace DestinyApi.Controllers
             return Ok(allWeapons);
         } 
 
-        [HttpGet]
+        [HttpGet("{id}")]
         public ActionResult<BaseWeaponStatsModel> GetWeaponById(int id)
         {
             var weaponById = _repo.GetWeaponById(id);
@@ -41,7 +43,7 @@ namespace DestinyApi.Controllers
             return Ok(weaponByType);
         }
 
-        [HttpGet]
+        [HttpGet("{weaponAttribute}")]
         public ActionResult<BaseWeaponStatsModel> GetWeaponByAttribute(string weaponAttribute)
         {
             var weaponByType = _repo.GetWeaponsByWeaponType(weaponAttribute);
