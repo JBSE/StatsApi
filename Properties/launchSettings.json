@@ -15,7 +15,7 @@
         "ASPNETCORE_ENVIRONMENT": "Development"
       }
     },
-    "DestinyApi": {
+    "StatsApi": {
       "commandName": "Project",
       "dotnetRunMessages": "true",
       "launchBrowser": true,

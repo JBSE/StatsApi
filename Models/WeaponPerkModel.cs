@@ -1,6 +1,6 @@
-namespace DestinyAPI.Model
+namespace StatsApi.Model
 {
-    public class WeaponPerkModel : BaseWeaponStatsModel
+    public class WeaponPerkModel : StatsModel
     {
         public new int Id {get; set;}
         public new string Name {get; set;}

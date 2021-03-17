@@ -8,9 +8,10 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Configuration;
-using DestinyAPI.Data;
+using StatsApi.Data;
+using StatsApi.Model;
 
-namespace DestinyApi
+namespace StatsApi
 {
     public class Startup
     {
@@ -24,7 +25,7 @@ namespace DestinyApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddScoped<IWeaponRepo, WeaponRepo>();
+            services.AddScoped<IRepo<WeaponStatsModel>, WeaponRepo>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

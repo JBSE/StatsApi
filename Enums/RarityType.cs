@@ -1,4 +1,4 @@
-namespace DestinyAPI.Model
+namespace StatsApi.Model
 {
     public enum RarityType
     {

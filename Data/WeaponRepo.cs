@@ -2,16 +2,16 @@ using System.ComponentModel;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using DestinyAPI.Data;
-using DestinyAPI.Model;
+using StatsApi.Data;
+using StatsApi.Model;
 
-namespace DestinyAPI.Data
+namespace StatsApi.Data
 {
-    public class WeaponRepo : IWeaponRepo
+    public class WeaponRepo : StatsModelRepo<WeaponStatsModel>
     {
-        private readonly IEnumerable<BaseWeaponStatsModel> _allWeaponData = new List<BaseWeaponStatsModel>
+        private readonly IEnumerable<WeaponStatsModel> _allWeaponData = new List<WeaponStatsModel>
         {
-            new BaseWeaponStatsModel
+            new WeaponStatsModel
             {
                 Id = 1,
                 Name = "Suros Regime",
@@ -26,7 +26,7 @@ namespace DestinyAPI.Data
                 RoundsPerMinute = 600,
                 Magazine = 40
             },
-            new BaseWeaponStatsModel
+            new WeaponStatsModel
             {
                 Id = 2,
                 Name = "Rat King",
@@ -41,7 +41,7 @@ namespace DestinyAPI.Data
                 RoundsPerMinute = 100,
                 Magazine = 12
             },
-            new BaseWeaponStatsModel
+            new WeaponStatsModel
             {
                 Id = 3,
                 Name = "Thunder Lord",
@@ -56,7 +56,7 @@ namespace DestinyAPI.Data
                 RoundsPerMinute = 1000,
                 Magazine = 100
             },
-            new BaseWeaponStatsModel
+            new WeaponStatsModel
             {
                 Id = 4,
                 Name = "Apostate",
@@ -71,7 +71,7 @@ namespace DestinyAPI.Data
                 RoundsPerMinute = 300,
                 Magazine = 12
             },
-            new BaseWeaponStatsModel
+            new WeaponStatsModel
             {
                 Id = 5,
                 Name = "Persuader",
@@ -86,7 +86,7 @@ namespace DestinyAPI.Data
                 RoundsPerMinute = 122,
                 Magazine = 8
             },
-            new BaseWeaponStatsModel
+            new WeaponStatsModel
             {
                 Id = 6,
                 Name = "Premonition",
@@ -103,37 +103,7 @@ namespace DestinyAPI.Data
             },
         };
 
-        public IEnumerable<BaseWeaponStatsModel> GetAllWeapons()
-        {
-            return _allWeaponData;
-        }
-
-        BaseWeaponStatsModel IWeaponRepo.GetWeaponById(int id)
-        {
-            var weaponStats = new BaseWeaponStatsModel();
-            foreach (var weapon in _allWeaponData)
-            {
-                if (weapon.Id == id)
-                {
-                    weaponStats.Id = id;
-                    weaponStats.WeaponType = weapon.WeaponType;
-                    weaponStats.Rarity = weapon.Rarity;
-                    weaponStats.Attribute = weapon.Attribute;
-                    weaponStats.Name = weapon.Name;
-                    weaponStats.Impact = weapon.Impact;
-                    weaponStats.Range = weapon.Range;
-                    weaponStats.Stability = weapon.Stability;
-                    weaponStats.Handling = weapon.Handling;
-                    weaponStats.ReloadSpeed = weapon.ReloadSpeed;
-                    weaponStats.RoundsPerMinute = weapon.RoundsPerMinute;
-                    weaponStats.Magazine = weapon.Magazine;
-                }
-            }
-
-            return weaponStats;
-        }
-
-        public IEnumerable<BaseWeaponStatsModel> GetWeaponsByRarity(string rarity)
+        public IEnumerable<WeaponStatsModel> GetWeaponsByRarity(string rarity)
         {
             if (Enum.TryParse(rarity, out RarityType rarityType))
             {
@@ -143,7 +113,7 @@ namespace DestinyAPI.Data
             return _allWeaponData.Where(x => x.Rarity == rarityType);
         }
 
-        public IEnumerable<BaseWeaponStatsModel> GetWeaponsByWeaponType(string type)
+        public IEnumerable<WeaponStatsModel> GetWeaponsByWeaponType(string type)
         {
             if (Enum.TryParse(type, out WeaponType weaponType))
             {
@@ -152,13 +122,18 @@ namespace DestinyAPI.Data
             return _allWeaponData.Where(x => x.WeaponType == weaponType);
         }
 
-        public IEnumerable<BaseWeaponStatsModel> GetWeaponsByAttribute(string attribute)
+        public IEnumerable<WeaponStatsModel> GetWeaponsByAttribute(string attribute)
         {
             if (Enum.TryParse(attribute, out AttributeType attributeType))
             {
                 throw new Exception("Attribute type does not exist, check spelling and try again");
             }
             return _allWeaponData.Where(x => x.Attribute == attributeType);
+        }
+
+        public override IEnumerable<WeaponStatsModel> GetAll()
+        {
+            return _allWeaponData;
         }
     }
 }

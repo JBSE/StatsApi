@@ -1,12 +1,8 @@
-namespace DestinyAPI.Model
+namespace StatsApi.Model
 {
-    public class BaseWeaponStatsModel
+    public class WeaponStatsModel : StatsModel
     {
-        public int Id {get; set;}
         public WeaponType WeaponType {get; set;}
-        public RarityType Rarity {get; set;}
-        public AttributeType Attribute {get; set;}
-        public string Name {get; set;}
         public int Impact {get; set;}
         public int Range {get; set;}
         public int Stability {get; set;}
