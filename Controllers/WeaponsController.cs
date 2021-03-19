@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using StatsApi.Data;
-using StatsApi.Model;
-using Microsoft.AspNetCore.Mvc;
-
-namespace StatsApi.Controllers
+﻿namespace StatsApi.Controllers
 {
+    using System.Collections.Generic;
+    using StatsApi.Data;
+    using Microsoft.AspNetCore.Mvc;
+    using StatsApi.Models;
+
     [Route("api/StatsApi")]
     [ApiController]
     public class WeaponsController : ControllerBase

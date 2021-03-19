@@ -1,7 +1,9 @@
+
+
 namespace StatsApi.Data
 {
     using System.Collections.Generic;
-    using StatsApi.Model;
+    using StatsApi.Models;
 
     public interface IRepo<out TItem> where TItem : StatsModel
     {

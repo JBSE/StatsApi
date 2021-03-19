@@ -1,5 +1,7 @@
-namespace StatsApi.Model
+namespace StatsApi.Models
 {
+    using StatsApi.Enums;
+
     public class WeaponStatsModel : StatsModel
     {
         public WeaponType WeaponType {get; set;}

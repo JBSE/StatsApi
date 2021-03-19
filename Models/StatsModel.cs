@@ -1,5 +1,7 @@
-namespace StatsApi.Model
+namespace StatsApi.Models
 {
+    using StatsApi.Enums;
+
     public class StatsModel
     {
         public int Id { get; set; }

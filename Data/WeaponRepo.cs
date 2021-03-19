@@ -1,12 +1,11 @@
-using System.ComponentModel;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using StatsApi.Data;
-using StatsApi.Model;
-
 namespace StatsApi.Data
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using StatsApi.Models;
+    using StatsApi.Enums;
+
     public class WeaponRepo : StatsModelRepo<WeaponStatsModel>
     {
         private readonly IEnumerable<WeaponStatsModel> _allWeaponData = new List<WeaponStatsModel>

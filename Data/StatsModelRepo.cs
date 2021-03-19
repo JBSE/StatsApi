@@ -1,9 +1,9 @@
-using System.Collections.Generic;
-using System.Linq;
-using StatsApi.Model;
-
 namespace StatsApi.Data
 {
+    using System.Collections.Generic;
+    using System.Linq;
+    using StatsApi.Models;
+
     public abstract class StatsModelRepo<TItem> : IRepo<TItem>
         where TItem : StatsModel
     {

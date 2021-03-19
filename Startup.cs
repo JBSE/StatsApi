@@ -1,18 +1,13 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Configuration;
-using StatsApi.Data;
-using StatsApi.Model;
-
 namespace StatsApi
 {
+    using Microsoft.AspNetCore.Builder;
+    using Microsoft.AspNetCore.Hosting;
+    using Microsoft.Extensions.DependencyInjection;
+    using Microsoft.Extensions.Hosting;
+    using Microsoft.Extensions.Configuration;
+    using StatsApi.Data;
+    using StatsApi.Models;
+
     public class Startup
     {
         private IConfiguration Configuration {get; set;}

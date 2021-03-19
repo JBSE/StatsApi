@@ -1,4 +1,4 @@
-namespace StatsApi.Model
+namespace StatsApi.Enums
 {
     public enum RarityType
     {
