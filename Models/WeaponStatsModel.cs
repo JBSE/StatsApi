@@ -4,7 +4,6 @@ namespace StatsApi.Models
 
     public class WeaponStatsModel : StatsModel
     {
-        public WeaponType WeaponType {get; set;}
         public int Impact {get; set;}
         public int Range {get; set;}
         public int Stability {get; set;}

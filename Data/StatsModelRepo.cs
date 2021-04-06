@@ -1,8 +1,10 @@
 namespace StatsApi.Data
 {
+    using System;
     using System.Collections.Generic;
     using System.Linq;
     using StatsApi.Models;
+    using StatsApi.Enums;
 
     public abstract class StatsModelRepo<TItem> : IRepo<TItem>
         where TItem : StatsModel
@@ -16,16 +18,28 @@ namespace StatsApi.Data
 
         public IEnumerable<TItem> GetByAttribute(string attribute)
         {
-            throw new System.NotImplementedException();
+            var parsedAttribute = (AttributeType)Enum.Parse(typeof(AttributeType), attribute);
+
+            return GetAll().Where(w => w.Attribute == parsedAttribute);
         }
 
         public IEnumerable<TItem> GetByRarity(string rarity)
         {
-            throw new System.NotImplementedException();
+            var parsedRarity = (RarityType)Enum.Parse(typeof(RarityType), rarity);
+
+            return GetAll().Where(w => w.Rarity == parsedRarity);
         }
+
         public IEnumerable<TItem> GetByType(string type)
         {
-            throw new System.NotImplementedException();
+            WeaponType? parsedType = null;
+            if (Enum.IsDefined(typeof(WeaponType), type))
+            {
+                parsedType = (WeaponType)Enum.Parse(typeof(WeaponType), type);
+                return GetAll().Where(w => w.Type == parsedType);
+            }
+
+            return null;
         }
     }
 }

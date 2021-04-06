@@ -16,7 +16,7 @@
             _repo = repository;
         }
 
-        [HttpGet]
+        [HttpGet("GetAll")]
         public ActionResult<IEnumerable<WeaponStatsModel>> GetAll()
         {
             var allWeapons = _repo.GetAll();
@@ -24,7 +24,7 @@
             return Ok(allWeapons);
         }
 
-        [HttpGet("{id}")]
+        [HttpGet("GetWeaponById/{id}")]
         public ActionResult<WeaponStatsModel> GetWeaponById(int id)
         {
             var weaponById = _repo.GetById(id);
@@ -33,19 +33,27 @@
         }
 
         [HttpGet]
-        public ActionResult<WeaponStatsModel> GetWeaponByType(string weaponType) 
+        [Route("GetWeaponByType/{weaponType}")]
+        public ActionResult<WeaponStatsModel> GetWeaponByType(string weaponType)
         {
             var weaponByType = _repo.GetByType(weaponType);
 
-            return Ok(weaponByType);
+            if (weaponByType != null)
+                return Ok(weaponByType);
+            else
+                return BadRequest("Weapon Type not found, please check spelling and try again");
         }
 
-        [HttpGet("{weaponAttribute}")]
+        [HttpGet]
+        [Route("GetWeaponByAttribute/{weaponAttribute}")]
         public ActionResult<WeaponStatsModel> GetWeaponByAttribute(string weaponAttribute)
         {
-            var weaponByType = _repo.GetByType(weaponAttribute);
+            var attribute = _repo.GetByAttribute(weaponAttribute);
 
-            return Ok(weaponByType);
+            if (attribute != null)
+                return Ok(attribute);
+            else
+                return BadRequest("Attribute not found, please check spelling and try again");
         }
     }
 }

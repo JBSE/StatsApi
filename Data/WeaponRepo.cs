@@ -14,7 +14,7 @@ namespace StatsApi.Data
             {
                 Id = 1,
                 Name = "Suros Regime",
-                WeaponType = WeaponType.AutoRifle,
+                Type = WeaponType.AutoRifle,
                 Attribute = AttributeType.None,
                 Rarity = RarityType.Exotic,
                 Impact = 56,
@@ -29,7 +29,7 @@ namespace StatsApi.Data
             {
                 Id = 2,
                 Name = "Rat King",
-                WeaponType = WeaponType.SideArm,
+                Type = WeaponType.SideArm,
                 Attribute = AttributeType.None,
                 Rarity = RarityType.Exotic,
                 Impact = 30,
@@ -44,7 +44,7 @@ namespace StatsApi.Data
             {
                 Id = 3,
                 Name = "Thunder Lord",
-                WeaponType = WeaponType.MachineGun,
+                Type = WeaponType.MachineGun,
                 Attribute = AttributeType.Arc,
                 Rarity = RarityType.Exotic,
                 Impact = 70,
@@ -59,7 +59,7 @@ namespace StatsApi.Data
             {
                 Id = 4,
                 Name = "Apostate",
-                WeaponType = WeaponType.SniperRifle,
+                Type = WeaponType.SniperRifle,
                 Attribute = AttributeType.Arc,
                 Rarity = RarityType.Legendary,
                 Impact = 55,
@@ -74,7 +74,7 @@ namespace StatsApi.Data
             {
                 Id = 5,
                 Name = "Persuader",
-                WeaponType = WeaponType.SniperRifle,
+                Type = WeaponType.SniperRifle,
                 Attribute = AttributeType.Solar,
                 Rarity = RarityType.Legendary,
                 Impact = 60,
@@ -89,7 +89,7 @@ namespace StatsApi.Data
             {
                 Id = 6,
                 Name = "Premonition",
-                WeaponType = WeaponType.MachineGun,
+                Type = WeaponType.MachineGun,
                 Attribute = AttributeType.Void,
                 Rarity = RarityType.Exotic,
                 Impact = 22,
@@ -118,7 +118,7 @@ namespace StatsApi.Data
             {
                 throw new Exception("Weapon type does not exist, check spelling and try again");
             }
-            return _allWeaponData.Where(x => x.WeaponType == weaponType);
+            return _allWeaponData.Where(x => x.Type == weaponType);
         }
 
         public IEnumerable<WeaponStatsModel> GetWeaponsByAttribute(string attribute)
