@@ -36,7 +36,7 @@ namespace StatsApi.Data
             if (Enum.IsDefined(typeof(WeaponType), type))
             {
                 parsedType = (WeaponType)Enum.Parse(typeof(WeaponType), type);
-                return GetAll().Where(w => w.Type == parsedType);
+                return GetAll().Where(w => w.WeaponType == parsedType);
             }
 
             return null;

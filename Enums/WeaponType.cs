@@ -16,6 +16,7 @@ namespace StatsApi.Enums
         HandCannon,
         MachineGun,
         Sword,
-        Bow
+        Bow,
+        None
     }
 }
